@@ -27,8 +27,15 @@ namespace PersonalFinance.Controllers
                 {
                     return Ok(new { message = "User registered successfully" });
                 }
+                else
+                {
+                    if (result.Errors.Any(e => e.Code == "DuplicateUserName"))
+                    {
+                        return BadRequest(new { message = "User already exists" });
+                    }
 
-                return BadRequest(result.Errors);
+                    return BadRequest(result.Errors);
+                }
             }
 
             return BadRequest(ModelState);
