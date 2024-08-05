@@ -1,11 +1,25 @@
 ﻿const path = require('path');
+const webpack = require('webpack');
+const glob = require('glob');
+const componentsDir = path.resolve(__dirname, 'components'); 
+
+const entries = {}; 
+
+glob.sync(`${componentsDir}/**/*.{js,jsx}`).forEach((file) => {
+    const relativePath = path.relative(__dirname, file).replace(/\\/g, '/');
+    const componentName = path.basename(file, path.extname(file));
+    entries[componentName] = `./${relativePath}`;
+    console.log(`Processing file: ${file}, Component Name: ${componentName}, Relative Path: ${relativePath}`);
+});
+
+console.log('Webpack Entries:', entries);
+
+
 module.exports = {
     mode: 'development',
-    entry: {
-        RegisterForm: './components/register.js'
-    },
+    entry: entries,
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../../wwwroot/js/compiledreact/'),
         filename: '[name]Compiled.js',
     },
     module: {

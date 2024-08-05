@@ -3,7 +3,14 @@
     "gulp": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-react": "^7.24.7",
+    "gulp-babel": "^8.0.0",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-stream": "^7.0.0"
   }
 }
