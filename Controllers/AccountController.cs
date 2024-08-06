@@ -9,10 +9,12 @@ namespace PersonalFinance.Controllers
     public class AccountController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(UserManager<ApplicationUser> userManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
            _userManager = userManager;
+            _signInManager = signInManager; 
         }
 
         [HttpPost("register")]
@@ -35,6 +37,30 @@ namespace PersonalFinance.Controllers
                     }
 
                     return BadRequest(result.Errors);
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+                if (result.Succeeded)
+                {
+                    return Ok(new { message = "User logged in successfully" });
+                }
+                else if (result.IsLockedOut)
+                {
+                    return BadRequest(new { message = "User account locked out." });
+                }
+                else
+                {
+                    return BadRequest(new { message = "Invalid login attempt." }); 
                 }
             }
 
