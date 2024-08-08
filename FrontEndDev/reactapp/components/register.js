@@ -68,7 +68,7 @@ function RegisterForm() {
                                 <p>Financial Freedom Starts Here</p>
                             </div>
                             <form onSubmit={handleSubmit}>
-                                <div class="form-control form-group">
+                                <div className="form-control form-group">
                                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                     <label>
                                         <span style={{ transitionDelay: "0ms" }}>E</span>
@@ -80,7 +80,7 @@ function RegisterForm() {
                                     </label>
                                 </div>
 
-                                <div class="form-control form-group">
+                                <div className="form-control form-group">
                                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                     <label>
                                         <span style={{ transitionDelay: "0ms" }}>P</span>
@@ -94,7 +94,7 @@ function RegisterForm() {
 
                                     </label>
                                 </div>
-                                <div class="form-control form-group">
+                                <div className="form-control form-group">
                                     <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                                     <label>
                                         <span style={{ transitionDelay: "0ms" }}>C</span>
