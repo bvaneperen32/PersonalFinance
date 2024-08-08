@@ -51,42 +51,49 @@ function Login() {
                             <p>Financial Freedom Starts Here</p>
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Email"
-                                    required
-                                />
+                            <div class="form-control form-group">
+                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <label>
+                                    <span style={{ transitionDelay: "0ms" }}>E</span>
+                                    <span style={{ transitionDelay: "50ms" }}>m</span>
+                                    <span style={{ transitionDelay: "100ms" }}>a</span>
+                                    <span style={{ transitionDelay: "150ms" }}>i</span>
+                                    <span style={{ transitionDelay: "200ms" }}>l</span>
+
+                                </label>
                             </div>
-                            <div className="form-group">
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="Password"
-                                    required
-                                />
+                            <div class="form-control form-group">
+                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                <label>
+                                    <span style={{ transitionDelay: "0ms" }}>P</span>
+                                    <span style={{ transitionDelay: "50ms" }}>a</span>
+                                    <span style={{ transitionDelay: "100ms" }}>s</span>
+                                    <span style={{ transitionDelay: "150ms" }}>s</span>
+                                    <span style={{ transitionDelay: "200ms" }}>w</span>
+                                    <span style={{ transitionDelay: "250ms" }}>o</span>
+                                    <span style={{ transitionDelay: "300ms" }}>r</span>
+                                    <span style={{ transitionDelay: "350ms" }}>d</span>
+
+                                </label>
                             </div>
                             <div className="form-group form-check check">
                                 <label className="form-check-label remember">
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                    checked={rememberMe}
-                                    onChange={(e) => setRememberMe(e.target.checked)}
-                                />
-                               Remember Me</label>
+                                    <input
+                                        type="checkbox"
+                                        className="form-check-input"
+                                        checked={rememberMe}
+                                        onChange={(e) => setRememberMe(e.target.checked)}
+                                    />
+                                    Remember Me</label>
                                 <a href="/forgotpassword">Forgot Password?</a>
                             </div>
 
                             {errorMessage && <p className="text-danger">{errorMessage}</p>}
-                            <div> 
-                            <button className="btn btn-primary btn-block w-100" type="submit">Login</button>
-                    </div>
-                            <div> 
-                                <button className="btn btn-secondary btn-block mt-2 w-100" type="button" onClick={handleRegisterClick }>Register</button>
+                            <div>
+                                <button className="btn btn-primary btn-block w-100" type="submit">Login</button>
+                            </div>
+                            <div>
+                                <button className="btn btn-secondary btn-block mt-2 w-100" type="button" onClick={handleRegisterClick}>Register</button>
                             </div>
                         </form>
 
