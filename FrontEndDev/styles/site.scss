@@ -152,8 +152,7 @@ input[type="password"]::placeholder {
 
 .form-check {
     font-family: 'Montserrat';
-    color: $primary-color;
-    white-space: nowrap; 
+    color: $primary-color; 
 
     .remember {
         font-weight: 400;
@@ -187,6 +186,11 @@ input[type="password"]::placeholder {
     width: 100%; 
 }
 
+.form-check-input:active,
+.form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}
 
 
 form {

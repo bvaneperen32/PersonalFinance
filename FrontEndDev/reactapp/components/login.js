@@ -45,7 +45,7 @@ function Login() {
                     <div className="logo">
                         <img src={logoWithWords} alt="Logo" className="img-fluid" />
                     </div>
-                    <div className="col-12 col-md-6 col-lg-4 login-container">
+                    <div className="col-9 col-md-8 col-lg-4 login-container">
                         <div className="text-center top-text mb-4">
                             <h1>Login</h1>
                             <p>Financial Freedom Starts Here</p>
