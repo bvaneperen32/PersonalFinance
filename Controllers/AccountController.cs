@@ -58,6 +58,10 @@ namespace PersonalFinance.Controllers
                 {
                     return BadRequest(new { message = "User account locked out." });
                 }
+                else if (result.IsNotAllowed)
+                {
+                    return Ok(new { message = "Locked out login" });
+                }
                 else
                 {
                     return BadRequest(new { message = "Invalid login attempt." }); 

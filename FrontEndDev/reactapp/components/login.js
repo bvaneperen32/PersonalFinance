@@ -1,11 +1,13 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios'; 
+import logoWithWords from "../../../wwwroot/images/logoWithWords.png"; 
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,44 +33,65 @@ function Login() {
         }
     }
 
+    const handleRegisterClick = () => {
+        window.location.href = '/home/register'; 
+    }
+
+
     return (
-        <div>
-            <div>
-                <h1>Login</h1>
-                <p>Welcome Back! Please login to your account</p>
-            </div>
-            <div>
-                <form onSubmit={handleSubmit }>
-                    <div>
-                        <input 
-                        type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email"
-                            required
-                        />
+        <div className="login-background">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="logo">
+                        <img src={logoWithWords} alt="Logo" className="img-fluid" />
                     </div>
-                    <div>
-                        <input 
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Password"
-                            required
-                            />
+                    <div className="col-12 col-md-6 col-lg-4 login-container">
+                        <div className="text-center top-text mb-4">
+                            <h1>Login</h1>
+                            <p>Financial Freedom Starts Here</p>
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Password"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group form-check check">
+                                <label className="form-check-label remember">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    checked={rememberMe}
+                                    onChange={(e) => setRememberMe(e.target.checked)}
+                                />
+                               Remember Me</label>
+                                <a href="/forgotpassword">Forgot Password?</a>
+                            </div>
+
+                            {errorMessage && <p className="text-danger">{errorMessage}</p>}
+                            <div> 
+                            <button className="btn btn-primary btn-block w-100" type="submit">Login</button>
                     </div>
-                    <div>
-                    <label>
-                    <input 
-                            type="checkbox"
-                            value={rememberMe}
-                            onChange={(e) => setRememberMe(e.target.checked)}
-                        />
-                            Remember Me</label>
+                            <div> 
+                                <button className="btn btn-secondary btn-block mt-2 w-100" type="button" onClick={handleRegisterClick }>Register</button>
+                            </div>
+                        </form>
+
                     </div>
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} 
-                    <button className="btn btn-primary" type="submit">Login</button>
-                </form>
+                </div>
             </div>
         </div>
     )

@@ -14,6 +14,7 @@ function compileReact(cb) {
     exec(`npx webpack --config ${webpackConfigPath}`, { cwd: path.resolve(__dirname, 'FrontEndDev/reactapp') }, (err, stdout, stderr) => {
         if (err) {
             console.error(`Error: ${err}`);
+            console.error(stderr)
             return cb(err);
         }
         console.log(stdout);

@@ -16,7 +16,27 @@
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/lib/axios.js\");\n\n\nfunction RegisterForm() {\n  const [email, setEmail] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [password, setPassword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [confirmPassword, setConfirmPassword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [errorMessage, setErrorMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const validatePassword = password => {\n    const hasNumber = /\\d/.test(password);\n    const hasLowercase = /[a-z]/.test(password);\n    const hasUppercase = /[A-Z]/.test(password);\n    const hasNonAplhaNumeric = /\\W/.test(password);\n    const isLongEnough = password.length >= 6;\n    return hasNumber && hasLowercase && hasUppercase && hasNonAplhaNumeric && isLongEnough;\n  };\n  const handleSubmit = async e => {\n    e.preventDefault();\n    if (!validatePassword(password)) {\n      setErrorMessage('Password must be at least 6 characters long and contain a number, lowercase letter, uppercase letter, and special character.');\n      return;\n    }\n    setErrorMessage('');\n    if (password != confirmPassword) {\n      setErrorMessage('Passwords do not match.');\n      return;\n    }\n    setErrorMessage('');\n    try {\n      const response = await axios__WEBPACK_IMPORTED_MODULE_1__[\"default\"].post('/api/account/register', {\n        email,\n        password,\n        confirmPassword\n      });\n      console.log(response.data);\n    } catch (error) {\n      if (error.response && error.response.data.message) {\n        setErrorMessage(error.response.data.message);\n      } else {\n        console.error(error);\n        setErrorMessage(\"An unexpected error occurred.\");\n      }\n    }\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"form\", {\n    onSubmit: handleSubmit\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"email\",\n    value: email,\n    onChange: e => setEmail(e.target.value),\n    placeholder: \"Email\",\n    required: true\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"password\",\n    value: password,\n    onChange: e => setPassword(e.target.value),\n    placeholder: \"Password\",\n    required: true\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"password\",\n    value: confirmPassword,\n    onChange: e => setConfirmPassword(e.target.value),\n    placeholder: \"Confirm Password\",\n    required: true\n  }), errorMessage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    style: {\n      color: 'red'\n    }\n  }, errorMessage), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    type: \"submit\"\n  }, \"Register\"));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegisterForm);\nconst register = ReactDOM.createRoot(document.getElementById('register'));\nregister.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(RegisterForm, null)));\n\n//# sourceURL=webpack://reactapp/./components/register.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ \"./node_modules/axios/lib/axios.js\");\n/* harmony import */ var _wwwroot_images_logoWithWords_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../wwwroot/images/logoWithWords.png */ \"../../wwwroot/images/logoWithWords.png\");\n\n\n\n\nfunction RegisterForm() {\n  const [email, setEmail] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [password, setPassword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [confirmPassword, setConfirmPassword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [errorMessage, setErrorMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const [successMessage, setSuccessMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');\n  const validatePassword = password => {\n    const hasNumber = /\\d/.test(password);\n    const hasLowercase = /[a-z]/.test(password);\n    const hasUppercase = /[A-Z]/.test(password);\n    const hasNonAplhaNumeric = /\\W/.test(password);\n    const isLongEnough = password.length >= 6;\n    return hasNumber && hasLowercase && hasUppercase && hasNonAplhaNumeric && isLongEnough;\n  };\n  const handleSubmit = async e => {\n    e.preventDefault();\n    if (!validatePassword(password)) {\n      setErrorMessage('Password must be at least 6 characters long and contain a number, lowercase letter, uppercase letter, and special character.');\n      return;\n    }\n    setErrorMessage('');\n    if (password != confirmPassword) {\n      setErrorMessage('Passwords do not match.');\n      return;\n    }\n    setErrorMessage('');\n    try {\n      const response = await axios__WEBPACK_IMPORTED_MODULE_3__[\"default\"].post('/api/account/register', {\n        email,\n        password,\n        confirmPassword\n      });\n      setSuccessMessage('Registration successful. Redirecting to login...');\n      setTimeout(() => {\n        window.location.href = '../..';\n      }, 2000);\n      console.log(response.data);\n    } catch (error) {\n      if (error.response && error.response.data.message) {\n        setErrorMessage(error.response.data.message);\n      } else {\n        console.error(error);\n        setErrorMessage(\"An unexpected error occurred.\");\n      }\n    }\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"login-background\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"container\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"row justify-content-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"logo\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    src: _wwwroot_images_logoWithWords_png__WEBPACK_IMPORTED_MODULE_2__,\n    alt: \"Logo\",\n    className: \"img-fluid\"\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"col-12 col-md-6 col-lg-4 login-container\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"text-center top-text mb-4\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", null, \"Register\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"Financial Freedom Starts Here\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"form\", {\n    onSubmit: handleSubmit\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"form-group\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"email\",\n    value: email,\n    onChange: e => setEmail(e.target.value),\n    placeholder: \"Email\",\n    required: true\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"form-group\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"password\",\n    value: password,\n    onChange: e => setPassword(e.target.value),\n    placeholder: \"Password\",\n    required: true\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"form-group\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"input\", {\n    type: \"password\",\n    value: confirmPassword,\n    onChange: e => setConfirmPassword(e.target.value),\n    placeholder: \"Confirm Password\",\n    required: true\n  })), successMessage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    className: \"text-danger\"\n  }, successMessage), errorMessage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    className: \"text-danger\"\n  }, errorMessage), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"button\", {\n    className: \"btn btn-secondary btn-block mt-2 w-100\",\n    type: \"submit\"\n  }, \"Register\"))))))));\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegisterForm);\nconst register = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById('register'));\nregister.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(RegisterForm, null)));\n\n//# sourceURL=webpack://reactapp/./components/register.js?");
+
+/***/ }),
+
+/***/ "./node_modules/react-dom/client.js":
+/*!******************************************!*\
+  !*** ./node_modules/react-dom/client.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nvar m = __webpack_require__(/*! react-dom */ \"react-dom\");\nif (false) {} else {\n  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;\n  exports.createRoot = function(c, o) {\n    i.usingClientEntryPoint = true;\n    try {\n      return m.createRoot(c, o);\n    } finally {\n      i.usingClientEntryPoint = false;\n    }\n  };\n  exports.hydrateRoot = function(c, h, o) {\n    i.usingClientEntryPoint = true;\n    try {\n      return m.hydrateRoot(c, h, o);\n    } finally {\n      i.usingClientEntryPoint = false;\n    }\n  };\n}\n\n\n//# sourceURL=webpack://reactapp/./node_modules/react-dom/client.js?");
+
+/***/ }),
+
+/***/ "../../wwwroot/images/logoWithWords.png":
+/*!**********************************************!*\
+  !*** ../../wwwroot/images/logoWithWords.png ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"aa11a672879da3113da6.png\";\n\n//# sourceURL=webpack://reactapp/../../wwwroot/images/logoWithWords.png?");
 
 /***/ }),
 
@@ -27,6 +47,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module) => {
 
 module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = ReactDOM;
 
 /***/ }),
 
@@ -571,6 +601,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -585,6 +627,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
